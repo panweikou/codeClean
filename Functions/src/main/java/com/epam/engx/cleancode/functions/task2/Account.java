@@ -13,7 +13,11 @@ public abstract class Account implements User {
     private TreeMap<Integer, Level> levelMap = new TreeMap<>();
 
     public Level getActivityLevel() {
-        validateAccountForLevel();
+        try {
+            validateAccountForLevel();
+        } catch (NotActivUserException e) {
+            System.out.println(e.getMessage());
+        }
 
         int reviewAnswers = 0;
         for (Review r : getAllReviews())
@@ -23,7 +27,7 @@ public abstract class Account implements User {
 
     }
 
-    private void validateAccountForLevel() {
+    private void validateAccountForLevel() throws NotActivUserException{
         if (!isRegistered() || getVisitNumber() <= 0)
             throw new NotActivUserException();
     }
