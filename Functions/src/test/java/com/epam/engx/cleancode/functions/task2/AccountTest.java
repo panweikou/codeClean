@@ -19,10 +19,10 @@ import static org.junit.Assert.assertEquals;
 public class AccountTest {
 
 
-    private TreeMap<Integer, Level> levelMap = new TreeMap<>(Collections.reverseOrder());
+    public TreeMap<Integer, Level> levelMap = new TreeMap<>(Collections.reverseOrder());
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         levelMap.put(10, new Level("1"));
         levelMap.put(30, new Level("2"));
     }
@@ -41,19 +41,19 @@ public class AccountTest {
 
     @Test
     public void shouldGetDefaultLevelWhenThereAreNoAnswers() {
-        Account accountStub = new AccountStub(Arrays.<Review>asList(new ReviewStub(0)));
-        assertEquals(Level.defaultLevel(), accountStub.getActivityLevel());
+        Account accountStub = new AccountStub(Collections.<Review>singletonList(new ReviewStub(0)));
+        assertEquals(Level.getDefaultLevel(), accountStub.getActivityLevel());
     }
 
     @Test
     public void shouldGetDefaultLevelWhenThereAreNotEnoughAnswers() {
-        Account accountStub = new AccountStub(Arrays.<Review>asList(new ReviewStub(9)));
-        assertEquals(Level.defaultLevel(), accountStub.getActivityLevel());
+        Account accountStub = new AccountStub(Collections.<Review>singletonList(new ReviewStub(9)));
+        assertEquals(Level.getDefaultLevel(), accountStub.getActivityLevel());
     }
 
     @Test
     public void shouldGetFirstLevelWhenThereAreEnoughAnswers() {
-        Account accountStub = new AccountStub(Arrays.<Review>asList(new ReviewStub(10)));
+        Account accountStub = new AccountStub(Collections.<Review>singletonList(new ReviewStub(10)));
         accountStub.setLevelMap(levelMap);
         assertEquals(new Level("1"), accountStub.getActivityLevel());
     }
@@ -67,7 +67,7 @@ public class AccountTest {
 
     @Test
     public void shouldGetSecondLevelWhenThereAreEnoughAnswers() {
-        Account accountStub = new AccountStub(Arrays.<Review>asList(new ReviewStub(30)));
+        Account accountStub = new AccountStub(Collections.<Review>singletonList(new ReviewStub(30)));
         accountStub.setLevelMap(levelMap);
         assertEquals(new Level("2"), accountStub.getActivityLevel());
     }
