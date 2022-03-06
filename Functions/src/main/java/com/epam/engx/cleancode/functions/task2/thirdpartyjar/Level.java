@@ -1,22 +1,26 @@
 package com.epam.engx.cleancode.functions.task2.thirdpartyjar;
 
+import java.util.Objects;
+
 public class Level {
 
-    private String id;
+    private String levelId;
 
     public Level(String s) {
-        id = s;
+        levelId = s;
     }
 
-    public static Level defaultLevel() {
+    public static Level getDefaultLevel() {
         return new Level("0");
     }
 
+
     @Override
     public boolean equals(Object o) {
-        if (o instanceof Level)
-            return id.equals(((Level) o).id);
-        else
-            return false;
+        if (this == o) return true;
+        if (!(o instanceof Level)) return false;
+        Level level = (Level) o;
+        return Objects.equals(levelId, level.levelId);
     }
+
 }
