@@ -15,16 +15,16 @@ public class FileManagerTest {
     public void should_listAllImageFiles() {
         List<String> imageList = fileManager.listAllImages();
         Assert.assertNotNull(imageList);
-        Assert.assertEquals(imageList.size(), 1);
-        Assert.assertEquals(imageList.get(0), "epam.png");
+        Assert.assertEquals(1, imageList.size());
+        Assert.assertEquals("epam.png",imageList.get(0));
     }
 
     @Test
     public void should_listAllDocumentFiles() {
         List<String> documentFiles = fileManager.listAllDocumentFiles();
         Assert.assertNotNull(documentFiles);
-        Assert.assertEquals(documentFiles.size(), 1);
-        Assert.assertEquals(documentFiles.get(0), "sample.doc");
+        Assert.assertEquals(1, documentFiles.size());
+        Assert.assertEquals("sample.doc",documentFiles.get(0));
     }
 
     @Test

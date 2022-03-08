@@ -17,9 +17,9 @@ public class Formatter {
     }
 
     private String repeat(String symbol, int times) {
-        String result = "";
+        StringBuilder result = new StringBuilder();
         for (int i = 0; i < times; i++)
-            result += symbol;
-        return result;
+            result.append(symbol);
+        return result.toString();
     }
 }

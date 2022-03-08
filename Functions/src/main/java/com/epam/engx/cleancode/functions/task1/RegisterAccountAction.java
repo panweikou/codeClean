@@ -27,7 +27,7 @@ public class RegisterAccountAction {
         }
 
         account.setCreatedDate(new Date());
-        List<Address> addresses = new ArrayList<Address>();
+        List<Address> addresses = new ArrayList<>();
         addresses.add(account.getHomeAddress());
         addresses.add(account.getWorkAddress());
         addresses.add(account.getAdditionalAddress());

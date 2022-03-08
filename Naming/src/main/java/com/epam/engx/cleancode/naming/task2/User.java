@@ -1,7 +1,6 @@
 package com.epam.engx.cleancode.naming.task2;
 
 import java.util.Arrays;
-import java.util.Date;
 
 public class User {
 

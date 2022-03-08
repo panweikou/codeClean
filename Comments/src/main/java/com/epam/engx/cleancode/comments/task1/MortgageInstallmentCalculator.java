@@ -4,6 +4,10 @@ import com.epam.engx.cleancode.comments.task1.thirdpartyjar.InvalidInputExceptio
 
 public class MortgageInstallmentCalculator {
 
+    private MortgageInstallmentCalculator() {
+
+    }
+
     /**
      *
      * @param p principal amount
@@ -23,7 +27,7 @@ public class MortgageInstallmentCalculator {
         r /= 100.0;
 
         // convert term in years to term in months
-        double tim = t * 12;
+        double tim = Double.valueOf(t) * 12;
 
         //for zero interest rates
         if(r==0)
