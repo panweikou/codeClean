@@ -11,7 +11,7 @@ import java.util.TreeMap;
 
 public abstract class Account implements User {
 
-    private TreeMap<Integer, Level> levelMap = new TreeMap<>();
+    private Map<Integer, Level> levelMap = new TreeMap<>();
 
     public Level getActivityLevel() {
         validateAccountForLevel();
@@ -37,7 +37,7 @@ public abstract class Account implements User {
         return Level.getDefaultLevel();
     }
 
-    public void setLevelMap(TreeMap<Integer, Level> levelMap) {
+    public void setLevelMap(Map<Integer, Level> levelMap) {
         this.levelMap = levelMap;
     }
 }

@@ -38,8 +38,7 @@ public class MortgageInstallmentCalculator {
 
         // Calculate the monthly payment
         // The Math.pow() method is used calculate values raised to a power
-        double monthlyPayment = (p * m) / (1 - Math.pow(1 + m, -tim));
 
-        return monthlyPayment;
+        return (p * m) / (1 - Math.pow(1 + m, -tim));
     }
 }
