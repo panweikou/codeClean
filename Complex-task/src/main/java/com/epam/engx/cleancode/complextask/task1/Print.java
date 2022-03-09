@@ -98,25 +98,14 @@ public class Print implements Command {
             result.append("║");
             for (int column = 0; column < columnCount; column++) {
                 int valuesLength = String.valueOf(values.get(column)).length();
-                if (valuesLength % 2 == 0) {
-                    for (int j = 0; j < (maxColumnSize - valuesLength) / 2; j++) {
-                        result.append(" ");
-                    }
-                    result.append(String.valueOf(values.get(column)));
-                    for (int j = 0; j < (maxColumnSize - valuesLength) / 2; j++) {
-                        result.append(" ");
-                    }
-                    result.append("║");
-                } else {
-                    for (int j = 0; j < (maxColumnSize - valuesLength) / 2; j++) {
-                        result.append(" ");
-                    }
-                    result.append(String.valueOf(values.get(column)));
-                    for (int j = 0; j <= (maxColumnSize - valuesLength) / 2; j++) {
-                        result.append(" ");
-                    }
-                    result.append("║");
+                for (int j = 0; j < (maxColumnSize - valuesLength) / 2; j++) {
+                    result.append(" ");
                 }
+                result.append(String.valueOf(values.get(column)));
+                for (int j = 0; j < (maxColumnSize - valuesLength) / 2; j++) {
+                    result.append(" ");
+                }
+                result.append("║");
             }
             result.append("\n");
             if (row < rowsCount - 1) {
@@ -179,22 +168,12 @@ public class Print implements Command {
         for (int column = 0; column < columnCount; column++) {
             result.append("║");
             int columnNamesLength = columnNames.get(column).length();
-            if (columnNamesLength % 2 == 0) {
-                for (int j = 0; j < (maxColumnSize - columnNamesLength) / 2; j++) {
-                    result.append(" ");
-                }
-                result.append(columnNames.get(column));
-                for (int j = 0; j < (maxColumnSize - columnNamesLength) / 2; j++) {
-                    result.append(" ");
-                }
-            } else {
-                for (int j = 0; j < (maxColumnSize - columnNamesLength) / 2; j++) {
-                    result.append(" ");
-                }
-                result.append(columnNames.get(column));
-                for (int j = 0; j <= (maxColumnSize - columnNamesLength) / 2; j++) {
-                    result.append(" ");
-                }
+            for (int j = 0; j < (maxColumnSize - columnNamesLength) / 2; j++) {
+                result.append(" ");
+            }
+            result.append(columnNames.get(column));
+            for (int j = 0; j < (maxColumnSize - columnNamesLength) / 2; j++) {
+                result.append(" ");
             }
         }
         result.append("║\n");
